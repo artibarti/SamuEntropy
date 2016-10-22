@@ -94,7 +94,8 @@
                 <version>4.4.3</version> 
                 <configuration> 
                     <sdk>
-                        <platform>19</platform>
+                        <platform>22</platform>
+						<path>/home/artibarti/Android/Sdk/</path>
                     </sdk>
                     <deleteConflictingFiles>true</deleteConflictingFiles> 
                     <undeployBeforeDeploy>true</undeployBeforeDeploy> 

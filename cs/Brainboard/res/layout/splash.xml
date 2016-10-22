@@ -3,10 +3,10 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/black"
+                android:background="@android:color/white"
                 android:gravity="center">
     <ImageView
-        android:id="@+id/neuronanimation"
+        android:id="@+id/splashanimation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -20,5 +20,5 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:scaleType="centerInside"
-        android:layout_below="@+id/neuronanimation"/>
+        android:layout_below="@+id/splashanimation"/>
 </RelativeLayout>

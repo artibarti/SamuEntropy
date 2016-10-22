@@ -440,9 +440,7 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
         } else if (event.getAction() == android.view.MotionEvent.ACTION_POINTER_DOWN) {
 
-            if (selNb != null) {
-                selNb = null;
-            }
+        selNb = null;
 
         } else if (event.getAction() == android.view.MotionEvent.ACTION_CANCEL) {
 

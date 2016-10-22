@@ -51,7 +51,7 @@ class Splash extends Thread {
 
     public void st() {
         android.content.Intent intent = new android.content.Intent();
-        intent.setClass(act, NeuronGameActivity.class);
+        intent.setClass(act, MainMenuActivity.class);
         act.startActivity(intent);
         anim.stop();
     }
@@ -75,12 +75,12 @@ public class SplashActivity extends android.app.Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        android.widget.ImageView iv = (android.widget.ImageView) findViewById(R.id.neuronanimation);
+        android.widget.ImageView iv = (android.widget.ImageView) findViewById(R.id.splashanimation);
 
-        iv.setBackgroundResource(R.drawable.neuron_animation);
+        iv.setBackgroundResource(R.drawable.splash_animation);
 
         final android.graphics.drawable.AnimationDrawable anim = (android.graphics.drawable.AnimationDrawable) iv.getBackground();
-
+		
         splash = new Splash(anim, this);
         runOnUiThread(splash);
 
