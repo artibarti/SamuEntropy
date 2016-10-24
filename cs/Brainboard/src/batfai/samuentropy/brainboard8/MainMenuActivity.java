@@ -45,218 +45,107 @@ package batfai.samuentropy.brainboard8;
  * @author nbatfai
  */
 
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.view.View;
-import android.widget.RelativeLayout;          
 import java.util.*;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Animation.AnimationListener;
+import android.widget.LinearLayout;          
 
 public class MainMenuActivity extends android.app.Activity 
 {
 
-	int MENU_ITEM_SIZE = 90;
-	int MENU_CIRCLE_RADIUS = 150;
-	int MENU_CIRCLE_DIAMETER = 300;
-	int MENU_CIRCLE_MID_X = 0;
-	int MENU_CIRCLE_MID_Y = 0;
-	double CIRCLE_INTERVAL = 60.0;
-	double MAX_TAPPING_DISTANCE_TO_DETECT = 50;
-
-	double MENU_ITEM_MAX_X_ORBIT = 0;
-	double MENU_ITEM_MAX_Y_ORBIT = 0;
-	double MENU_ITEM_MIN_X_ORBIT = 0;
-	double MENU_ITEM_MIN_Y_ORBIT = 0;
-
-	private float fromX = 0;
-	private float fromY = 0;
-	private int currentMenuItem = -1;
-
-	private RelativeLayout menuLayout;
-	private List<ImageView> menuItems;
+	private List<ImageButton> menuItems;
+	Animation btnAnim;
+	private LinearLayout mainLayout;
+	private Intent intent;
 
     @Override
     public void onCreate(android.os.Bundle savedInstanceState)
 	{
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu);
+        setContentView(R.layout.main_menu);
 
-   		menuItems = new ArrayList<ImageView>();
+   		menuItems = new ArrayList<ImageButton>();
+		btnAnim = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
 
-		menuLayout = (RelativeLayout)findViewById(R.id.mainrelativelayout);
-		ViewTreeObserver vto = menuLayout.getViewTreeObserver(); 
+		findViewById(R.id.main_menu_account_btn).startAnimation(btnAnim);
+		findViewById(R.id.main_menu_neurtable_btn).startAnimation(btnAnim);
+		findViewById(R.id.main_menu_neurgame_btn).startAnimation(btnAnim);
+
+		mainLayout = (LinearLayout)findViewById(R.id.mainLayout);
+		ViewTreeObserver vto = mainLayout.getViewTreeObserver(); 
 		vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener()
 		{ 
 	
 	    	@Override 
 	    	public void onGlobalLayout()
 			{ 
-	    	    menuLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this); 
+	    	    mainLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this); 
 
-	    	    MENU_CIRCLE_MID_X = findViewById(R.id.mainbackground).getMeasuredWidth() / 2;
-	    	    MENU_CIRCLE_MID_Y = findViewById(R.id.mainbackground).getMeasuredHeight() / 2;  
-				
-				addMenuItem();
-				addMenuItem();
-				addMenuItem();
-				addMenuItem();
+				btnAnim.setAnimationListener(new AnimationListener()
+				{
+
+				    @Override
+				    public void onAnimationStart(Animation animation)
+					{
+
+    				}
+
+				    @Override
+				    public void onAnimationRepeat(Animation animation)
+					{
+		
+				    }
+
+				    @Override
+				    public void onAnimationEnd(Animation animation) 
+					{
+
+    				}
+				});
+
 
 	    	} 
 		});
+
+	}
+
+
+	public void openUserMenu(View v)
+	{
+		intent = new Intent(this, UserMenuActivity.class);
+		startActivity(intent);
+		//v.startAnimation(btnAnim);	
+        //intent.putExtra(EXTRA_MESSAGE, message);
+        //this.startActivity(intent);
+		//final Intent intent = new Intent(this, UserMenuActivity.class);
+
     }
 
-	public int getMenuItemCount()
+	public void openNeurMenu(View v)
 	{
-		return menuItems.size();	
-	}
-
-	public ImageView addMenuItem()
-	{
-		ImageView iv = new ImageView(this);
-		iv.setId(getMenuItemCount() + 1);
-		iv.setImageResource(R.drawable.img_a);
-
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(MENU_ITEM_SIZE, MENU_ITEM_SIZE);
-
-		double deg = (double)getMenuItemCount() * CIRCLE_INTERVAL * Math.PI / 180.0;
-		double X = Math.cos(deg) * (MENU_CIRCLE_RADIUS + MENU_ITEM_SIZE / 2) + MENU_CIRCLE_MID_X - MENU_ITEM_SIZE / 2;
-		double Y = Math.sin(deg) * (MENU_CIRCLE_RADIUS + MENU_ITEM_SIZE / 2) + MENU_CIRCLE_MID_Y - MENU_ITEM_SIZE / 2;
-
-		params.leftMargin = (int)X;
-		params.topMargin =  (int)Y;
-		menuLayout.addView(iv, params);
-
-		menuItems.add(iv);
-		
-		return iv;
-	}
-
-	public class Vector2d
-	{
-		public Vector2d(float x, float y)
-		{
-			this.x = x;
-			this.y = y;
-		}
-
-		public float getX() {return x;}
-		public float getY() {return y;}
-		public void setX(float x) {this.x = x;}
-		public void setY(float y) {this.y = y;}
-		
-		protected float x,y;
-				
-	}
-
-	public Vector2d getVectorOfTwoPoints(float x1, float y1, float x2, float y2)
-	{
-		Vector2d v2d = new Vector2d(x2-x1,y2-y1);
-		return v2d;
-	}
-
-	public Vector2d normalize(Vector2d v)
-	{
-		float l = (float)Math.sqrt( (double)(v.getX()*v.getX() + v.getY()*v.getY()) );
-		v.setX(v.getX() / l);	
-		v.setY(v.getY() / l);
-
-		return v;	
-	}
-
-	public Vector2d rotateVector(Vector2d v, float deg)
-	{
-		Vector2d v_ = new Vector2d(0,0);
-		v_.setX( (float)(Math.cos(deg)*v.getX() - Math.sin(deg)*v.getY()) );
-		v_.setY( (float)(Math.sin(deg)*v.getX() + Math.cos(deg)*v.getY()) );
-		return v_;
-	}
-
-	public Vector2d addVectorToVector(Vector2d v1, Vector2d v2)
-	{
-		Vector2d v = new Vector2d(v1.getX() + v2.getX(), v1.getY() + v2.getY());
-		return v;
-	}
-
-    @Override
-    public boolean onTouchEvent(android.view.MotionEvent event)
-	{
-		
-		float x = event.getX();
-        float y = event.getY();
-
-		if (event.getAction() == android.view.MotionEvent.ACTION_DOWN)
-		{
-			fromX = x;
-            fromY = y;
-			currentMenuItem = getNearestMenuItem(x,y);
-		}
-
-		else if (event.getAction() == android.view.MotionEvent.ACTION_CANCEL)
-		{
-			currentMenuItem = -1;
-			fromX = 0;
-			fromY = 0;		
-		}
-
-		else if (event.getAction() == android.view.MotionEvent.ACTION_MOVE)
-		{
-			if (currentMenuItem != -1)
-			{
-
-				Vector2d v = new Vector2d(menuItems.get(currentMenuItem).getX() + MENU_ITEM_SIZE / 2 - MENU_CIRCLE_MID_X,
-					menuItems.get(currentMenuItem).getY() + MENU_ITEM_SIZE / 2 - MENU_CIRCLE_MID_Y);
-
-				v = rotateVector(v, 0.05f);
-				Vector2d newCoords = new Vector2d(0,0);
-				Vector2d tmp = new Vector2d((float)(MENU_CIRCLE_MID_X), (float)(MENU_CIRCLE_MID_Y));
-				newCoords.setX( addVectorToVector( tmp, v ).getX() );
-				newCoords.setY( addVectorToVector( tmp, v ).getY() );
-				menuItems.get(currentMenuItem).setX( newCoords.getX() - MENU_ITEM_SIZE / 2 );
-				menuItems.get(currentMenuItem).setY( newCoords.getY() - MENU_ITEM_SIZE / 2 );
-		
-                fromX = newCoords.getX();
-                fromY = newCoords.getY();		
-			}		
-		}
-
-		else if (event.getAction() == android.view.MotionEvent.ACTION_UP)
-		{
-			currentMenuItem = -1;
-			fromX = 0;
-			fromY = 0;
-		}
-
-		return true;
-	}
-
-    public float getDistance(float x1, float y1, float x2, float y2)
-	{
-        return (float)Math.sqrt( (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) );
+		intent = new Intent(this, NeurMenuActivity.class);
+		startActivity(intent);
+		//v.startAnimation(btnAnim);
+        //intent.putExtra(EXTRA_MESSAGE, message);
+        //this.startActivity(intent);
     }
 
-	protected int getNearestMenuItem(float x, float y)
+	public void openNeurTable(View v)
 	{
-		int id = -1;
-		double minDistance = MAX_TAPPING_DISTANCE_TO_DETECT;		
-		
-		for(int i = 0; i<menuItems.size(); i++)
-		{
-			float d = getDistance(menuItems.get(i).getX() + menuItems.get(i).getWidth() / 2, 
-				menuItems.get(i).getY() + menuItems.get(i).getHeight() / 2, 
-				x,y);
-			if( d < minDistance )
-			{
-				id = i;
-				minDistance = d;
-			}
-		}
-
-		return id;
-	}
-
+		intent = new Intent(this, NeuronGameActivity.class);
+		startActivity(intent);
+		//v.startAnimation(btnAnim);
+        //intent.putExtra(EXTRA_MESSAGE, message);
+        //this.startActivity(intent);
+    }
 
 }
 

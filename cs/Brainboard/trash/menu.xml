@@ -20,7 +20,7 @@
         android:orientation="vertical"
         tools:ignore="UselessParent" >
 
-
+		
         <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -29,6 +29,7 @@
 			android:id="@+id/mainrelativelayout">
 
         </RelativeLayout>
+		
 
         <LinearLayout
             android:orientation="horizontal"

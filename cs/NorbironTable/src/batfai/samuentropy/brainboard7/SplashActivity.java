@@ -80,6 +80,7 @@ public class SplashActivity extends android.app.Activity {
         iv.setBackgroundResource(R.drawable.neuron_animation);
 
         final android.graphics.drawable.AnimationDrawable anim = (android.graphics.drawable.AnimationDrawable) iv.getBackground();
+		anim.start();
 
         splash = new Splash(anim, this);
         runOnUiThread(splash);

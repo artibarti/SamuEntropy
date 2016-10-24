@@ -76,6 +76,7 @@
             <organizationUrl>http://www.inf.unideb.hu</organizationUrl>
         </developer>
     </developers>
+
     <dependencies>
         <dependency>
             <groupId>com.google.android</groupId>
@@ -84,6 +85,7 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
     <build>        
         <finalName>${project.artifactId}</finalName>
         <sourceDirectory>src</sourceDirectory>        
