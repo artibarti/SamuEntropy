@@ -45,16 +45,26 @@ package batfai.samuentropy.brainboard8;
  */
 public class NeuronBox implements Cloneable {
 
+	public int SLOT_SIZE = 150;
+	public int PROCESSOR_SIZE_X = 100;
+	public int PROCESSOR_SIZE_Y = 100;
+	public int PROCESSOR_FRAME_SIZE = 25;
+
     private Sprite[] neurons;
 
     private android.graphics.Bitmap tiles;
     private android.graphics.Bitmap cover;
+
     android.graphics.Rect to;
+
     private int boxWidth;
     private int boxHeight;
+
     private int x;
     private int y;
+
     int numberOfNeurons;
+
     protected static android.graphics.Paint boxPaint = new android.graphics.Paint();
     protected static android.graphics.Paint selectedBoxPaint = new android.graphics.Paint();
     protected int selectedBoxPaintSize = 0;
@@ -64,11 +74,14 @@ public class NeuronBox implements Cloneable {
 
     private int type = 1;
 
+
+
     public NeuronBox(android.graphics.Bitmap tiles, int length, int width, int height,
             int numberOfNeurons,
             android.graphics.Bitmap cover, int x, int y) {
-        this.x = x;
-        this.y = y;
+
+        this.x = x * SLOT_SIZE + PROCESSOR_FRAME_SIZE;
+        this.y = y * SLOT_SIZE + PROCESSOR_FRAME_SIZE;
         this.tiles = tiles;
 
         this.cover = cover;
@@ -79,15 +92,13 @@ public class NeuronBox implements Cloneable {
 
         this.numberOfNeurons = numberOfNeurons;
 
-        boxPaint.setColor(android.graphics.Color.argb(0xaf, 0xc4, 0xd9,
-                0xbf));
+        boxPaint.setColor(android.graphics.Color.argb(0xaf, 0xc4, 0xd9,0xbf));
         boxPaint.setStyle(android.graphics.Paint.Style.FILL_AND_STROKE);
         boxPaint.setAntiAlias(true);
         boxPaint.setStrokeWidth(55);
         boxPaint.setAlpha(170);
 
-        selectedBoxPaint.setColor(android.graphics.Color.argb(0x8f, 0x44, 0xd9,
-                0xbf));
+        selectedBoxPaint.setColor(android.graphics.Color.argb(0x8f, 0x44, 0xd9, 0xbf));
         selectedBoxPaint.setStyle(android.graphics.Paint.Style.STROKE);
         selectedBoxPaint.setAntiAlias(true);
         selectedBoxPaint.setStrokeWidth(1);
@@ -98,71 +109,90 @@ public class NeuronBox implements Cloneable {
         }
     }
 
-    public Object clone() {
+    public Object clone()
+	{
 
-        try {
+        try
+		{
             return super.clone();
-        } catch (CloneNotSupportedException ex) {
+        }
+
+		catch (CloneNotSupportedException ex) 
+		{
             java.util.logging.Logger.getLogger(NeuronBox.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         return null;
     }
 
-    public int getType() {
+    public int getType()
+	{
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(int type)
+	{
         this.type = type;
     }
 
-    public void setSelected(boolean selected) {
+    public void setSelected(boolean selected)
+	{
         this.selected = selected;
     }
 
-    public boolean getSelected() {
+    public boolean getSelected()
+	{
         return selected;
     }
 
-    public void setCover(boolean open) {
+    public void setCover(boolean open)
+	{
         this.open = open;
     }
 
-    public boolean getCover() {
+    public boolean getCover()
+	{
         return open;
     }
 
-    public int getWidth() {
+    public int getWidth()
+	{
         return boxWidth;
     }
 
-    public int getHeight() {
+    public int getHeight()
+	{
         return boxHeight;
     }
 
-    public int getX() {
+    public int getX()
+	{
         return x;
     }
 
-    public int getY() {
+    public int getY()
+	{
         return y;
     }
 
-    public void setXY(float x, float y) {
+    public void setXY(float x, float y)
+	{
         this.x = (int) x;
         this.y = (int) y;
     }
 
-    public void draw(float shiftx, float shifty, android.graphics.Canvas canvas) {
+    public void draw(float shiftx, float shifty, android.graphics.Canvas canvas)
+	{
 
-        for (int i = 0; i < neurons.length; ++i) {
+        for (int i = 0; i < neurons.length; ++i)
+		{
             neurons[i].draw(x + shiftx, y + shifty, canvas);
         }
 
         canvas.drawRect(x + shiftx, y + shifty, x + shiftx + boxWidth, y + shifty + boxHeight, boxPaint);
 
-        if (!open) {
+        if (!open)
+		{
             to.left = x + (int) shiftx;
             to.top = y + (int) shifty;
             to.right = to.left + boxWidth;
@@ -170,7 +200,8 @@ public class NeuronBox implements Cloneable {
             canvas.drawBitmap(cover, null, to, null);
         }
 
-        if (selected) {
+        if (selected)
+		{
 
             selectedBoxPaintSize = (selectedBoxPaintSize + 3) % 12;
             selectedBoxPaint.setStrokeWidth(1 + selectedBoxPaintSize);
@@ -184,9 +215,11 @@ public class NeuronBox implements Cloneable {
 
     }
 
-    public void step() {
+    public void step()
+	{
 
-        for (int i = 0; i < neurons.length; ++i) {
+        for (int i = 0; i < neurons.length; ++i)
+		{
             neurons[i].step();
         }
 
