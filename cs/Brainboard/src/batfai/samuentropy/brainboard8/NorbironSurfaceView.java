@@ -237,8 +237,8 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
     protected float boardy = 0;
 
     private Nodes nodes;
-    private static java.util.List<NeuronBox> nodeBoxes = new java.util.ArrayList<NeuronBox>();
 
+    private static java.util.List<NeuronBox> nodeBoxes = new java.util.ArrayList<NeuronBox>();
     private static java.util.List<Integer> nodeIds = new java.util.ArrayList<Integer>();
 
     protected NeuronBox selNb = null;
@@ -356,13 +356,16 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 			{
                 for (int j = 0; j < 10; ++j)
 				{
+					if (i >= 2 && j == 0) continue;
                     canvas.drawBitmap(nodes.getBoardPic(), -startsx + boardx + i * SLOT_SIZE, -startsy + boardy + j * SLOT_SIZE, null);
                 }
             }
 
-            for (NeuronBox nb : nodeBoxes)
+			for(int i = 0; i<nodeBoxes.size(); i++)
+            //for (NeuronBox nb : nodeBoxes)
 			{
-                nb.draw(-startsx, -startsy, canvas);
+                //nb.draw(-startsx, -startsy, canvas);
+				nodeBoxes.get(i).draw(-startsx, -startsy, canvas);
             }
 
             canvas.restore();
@@ -453,7 +456,9 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
             fromsy = y;
 
             NeuronBox nb = nearestNeuronBox(x + startsx, y + startsy);
-            if (nb != null) {
+
+            if (nb != null)
+			{
 
                 if (nb.getType() == -1)
 				{
@@ -496,7 +501,13 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
             if (selNb != null)
 			{
-                selNb.setXY(selNb.getX() - (fromsx - x), selNb.getY() - (fromsy - y));
+
+				int nx,ny;
+
+				nx = (int)(x + startsx) / SLOT_SIZE;
+				ny = (int)(y + startsy) / SLOT_SIZE;
+
+                selNb.setXY(nx,ny);
 
                 fromsx = x;
                 fromsy = y;
@@ -521,7 +532,17 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
             if (selNb != null)
 			{
+				int nx,ny;
 
+				nx = (int)(x + startsx) / SLOT_SIZE;
+				ny = (int)(y + startsy) / SLOT_SIZE;
+
+                selNb.setXY(nx,ny);
+
+                fromsx = x;
+                fromsy = y;
+
+			/*
                 float nx = selNb.getX() - (fromsx - x);
                 float ny = selNb.getY() - (fromsy - y);
 
@@ -530,6 +551,8 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
                 fromsx = x;
                 fromsy = y;
+			*/
+				selNb = null;
 
             }
         }

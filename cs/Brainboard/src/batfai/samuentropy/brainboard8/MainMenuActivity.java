@@ -57,6 +57,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.LinearLayout;          
+import android.view.animation.AnimationSet;
 
 public class MainMenuActivity extends android.app.Activity 
 {
@@ -88,35 +89,33 @@ public class MainMenuActivity extends android.app.Activity
 	    	public void onGlobalLayout()
 			{ 
 	    	    mainLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this); 
-
-				btnAnim.setAnimationListener(new AnimationListener()
-				{
-
-				    @Override
-				    public void onAnimationStart(Animation animation)
-					{
-
-    				}
-
-				    @Override
-				    public void onAnimationRepeat(Animation animation)
-					{
-		
-				    }
-
-				    @Override
-				    public void onAnimationEnd(Animation animation) 
-					{
-
-    				}
-				});
-
+				startBackgroundAnimation();
 
 	    	} 
 		});
 
 	}
 
+	public void startBackgroundAnimation()
+	{
+		Animation a = AnimationUtils.loadAnimation(this, R.anim.bg_anim_rotate_left);
+		Animation b = AnimationUtils.loadAnimation(this, R.anim.bg_anim_rotate_right);
+		Animation c = AnimationUtils.loadAnimation(this, R.anim.bg_anim_scale_smaller);
+		Animation d = AnimationUtils.loadAnimation(this, R.anim.bg_anim_scale_bigger);
+		Animation e = AnimationUtils.loadAnimation(this, R.anim.bg_anim_translate_rightup);
+
+		AnimationSet set1 = new AnimationSet(false);
+		set1.addAnimation(a);
+		set1.addAnimation(e);
+		set1.addAnimation(c);
+		findViewById(R.id.aaa).startAnimation(set1);
+
+		AnimationSet set2 = new AnimationSet(false);
+		set2.addAnimation(b);
+		set2.addAnimation(d);
+		set2.addAnimation(e);
+		findViewById(R.id.bbb).startAnimation(set2);
+	}
 
 	public void openUserMenu(View v)
 	{

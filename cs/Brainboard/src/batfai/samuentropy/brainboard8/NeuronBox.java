@@ -177,8 +177,8 @@ public class NeuronBox implements Cloneable {
 
     public void setXY(float x, float y)
 	{
-        this.x = (int) x;
-        this.y = (int) y;
+        this.x = (int) x * SLOT_SIZE + PROCESSOR_FRAME_SIZE;
+        this.y = (int) y * SLOT_SIZE + PROCESSOR_FRAME_SIZE;
     }
 
     public void draw(float shiftx, float shifty, android.graphics.Canvas canvas)
@@ -213,6 +213,36 @@ public class NeuronBox implements Cloneable {
 
         }
 
+		/*
+        for (int i = 0; i < neurons.length; ++i)
+		{
+            neurons[i].draw(x + shiftx, y + shifty, canvas);
+        }
+
+        canvas.drawRect(x + shiftx, y + shifty, x + shiftx + boxWidth, y + shifty + boxHeight, boxPaint);
+
+        if (!open)
+		{
+            to.left = x + (int) shiftx;
+            to.top = y + (int) shifty;
+            to.right = to.left + boxWidth;
+            to.bottom = to.top + boxHeight;
+            canvas.drawBitmap(cover, null, to, null);
+        }
+
+        if (selected)
+		{
+
+            selectedBoxPaintSize = (selectedBoxPaintSize + 3) % 12;
+            selectedBoxPaint.setStrokeWidth(1 + selectedBoxPaintSize);
+
+            canvas.drawRect(x + shiftx - selectedBoxPaintSize,
+                    y + shifty - selectedBoxPaintSize,
+                    x + shiftx + boxWidth + 2 * selectedBoxPaintSize,
+                    y + shifty + boxHeight + 2 * selectedBoxPaintSize, selectedBoxPaint);
+
+        }
+		*/
     }
 
     public void step()
