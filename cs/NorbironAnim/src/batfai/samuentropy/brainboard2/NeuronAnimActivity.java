@@ -39,25 +39,59 @@
  */
 package batfai.samuentropy.brainboard2;
 
-public class NeuronAnimActivity extends android.app.Activity {
+import android.view.animation.AnimationSet;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;          
+import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+
+public class NeuronAnimActivity extends android.app.Activity
+{
+
+    private android.widget.ImageView iv;
+	private Animation anim_rotate;
+	private Animation anim_orbit;
+	private LinearLayout mainLayout;
 
     @Override
-    public void onCreate(android.os.Bundle savedInstanceState) {
+    public void onCreate(android.os.Bundle savedInstanceState)
+	{
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        android.widget.ImageView iv = (android.widget.ImageView) findViewById(R.id.neuronanimation);
+		mainLayout = (LinearLayout)findViewById(R.id.mainlayout);
+		ViewTreeObserver vto = mainLayout.getViewTreeObserver(); 
+		vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener()
+		{ 
+	
+	    	@Override 
+	    	public void onGlobalLayout()
+			{ 
+	    	    mainLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this); 
+				startAnim();
 
-        iv.setBackgroundResource(R.drawable.neuron_animation);
+	    	} 
+		});
 
-        final android.graphics.drawable.AnimationDrawable anim = (android.graphics.drawable.AnimationDrawable) iv.getBackground();
 
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-                anim.start();
-            }
-        });
     }
+
+
+
+	public void startAnim()
+	{
+		//iv.setX(iv.getX() + iv.getX()/2);
+
+		iv = (android.widget.ImageView) findViewById(R.id.neuronanimation);
+        anim_rotate = AnimationUtils.loadAnimation(this, R.anim.anim_orbit_right);
+		anim_orbit = AnimationUtils.loadAnimation(this, R.anim.anim_rotate_right);
+		AnimationSet animationSet = new AnimationSet(false);
+		animationSet.addAnimation(anim_rotate);
+		animationSet.addAnimation(anim_orbit);
+	
+		iv.startAnimation(animationSet);
+	}
+
 }

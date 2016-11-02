@@ -43,6 +43,7 @@ package batfai.samuentropy.brainboard3;
  *
  * @author nbatfai
  */
+
 public class NorbironSurfaceView extends android.view.SurfaceView implements Runnable {
 
     private float startsx = 0;
@@ -58,10 +59,16 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
     protected float boardx = 0;
     protected float boardy = 0;
-
+    private android.content.Context context;
+	
     private android.graphics.Bitmap boardPic;
-    private android.graphics.Bitmap neuronSprite;
+
+    /*
+	private android.graphics.Bitmap neuronSprite;
     private Sprite norbironSprite;
+	*/
+
+	private Box[] boxes;
 
     private android.view.SurfaceHolder surfaceHolder;
     private android.view.ScaleGestureDetector scaleGestureDetector;
@@ -79,7 +86,6 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
     public NorbironSurfaceView(android.content.Context context) {
         super(context);
-
         cinit(context);
 
     }
@@ -87,7 +93,6 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
     public NorbironSurfaceView(android.content.Context context,
             android.util.AttributeSet attrs) {
         super(context, attrs);
-
         cinit(context);
 
     }
@@ -115,24 +120,27 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
     private void cinit(android.content.Context context) {
 
+		this.context = context;
+
         surfaceHolder = getHolder();
 
         surfaceHolder.addCallback(new SurfaceEvents(this));
+
+		boxes = new Box[9];
+		for(int i = 0; i < 3; i++)
+		{
+			for(int j = 0; j < 3; j++)		
+			{
+				Box tmp = new Box(i * 200, j * 200, 200, j+1, this.context);
+				boxes[i*3 + j] = tmp;
+			}
+		}
+			
 
         int resId = getResources().getIdentifier("pcb550i", "drawable",
                 "batfai.samuentropy.brainboard3");
 
         boardPic = android.graphics.BitmapFactory.decodeResource(getResources(), resId);
-
-        resId = getResources().getIdentifier("neuronsprite", "drawable",
-                "batfai.samuentropy.brainboard3");
-
-        neuronSprite = android.graphics.BitmapFactory.decodeResource(getResources(), resId);
-
-        neuronSprite = android.graphics.Bitmap.createScaledBitmap(neuronSprite, 128 * 7, 123, false);
-
-        norbironSprite = new Sprite(neuronSprite, 7, 128, 123);
-
         scaleGestureDetector = new android.view.ScaleGestureDetector(context, new ScaleAdapter(this));
 
     }
@@ -149,7 +157,10 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
             canvas.drawBitmap(boardPic, -startsx + boardx, -startsy + boardy, null);
 
-            norbironSprite.draw(canvas);
+			for(int i = 0; i<9; i++)
+			{
+				boxes[i].Draw(canvas);
+			}
 
             canvas.restore();
         }
@@ -223,11 +234,16 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
             if ((newnow = System.currentTimeMillis()) - now > 100) {
 
-                norbironSprite.nextTile();
-
                 spritex = (spritex + 1) % 100;
-                norbironSprite.setXY(-startsx + boardx + boardPic.getWidth()/2 + spritex, 
-                        -startsy + boardy + boardPic.getHeight()/2);
+
+				for(int i = 0; i<9; i++)
+				{
+					boxes[i].Move();
+					boxes[i].getSprite().setXY(-startsx + boardx + boardPic.getWidth()/2 + spritex, -startsy + boardy + boardPic.getHeight()/2);
+					boxes[i].getSprite().setXY(-startsx + boxes[i].getstartX() + spritex, -startsy + boxes[i].getstartY());
+	                boxes[i].getSprite().nextTile();
+					boxes[i].setXY(-startsx + boxes[i].getstartX(), -startsy + boxes[i].getstartY());
+				}
 
                 repaint();
 

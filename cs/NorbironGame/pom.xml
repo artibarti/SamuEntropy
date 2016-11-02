@@ -95,6 +95,7 @@
                 <configuration> 
                     <sdk> 
                         <platform>22</platform> 
+			<path>/home/artibarti/Android/Sdk/</path>
                     </sdk> 
                     <deleteConflictingFiles>true</deleteConflictingFiles> 
                     <undeployBeforeDeploy>true</undeployBeforeDeploy> 

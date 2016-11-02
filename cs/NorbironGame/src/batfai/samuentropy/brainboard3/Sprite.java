@@ -43,6 +43,7 @@ package batfai.samuentropy.brainboard3;
  *
  * @author nbatfai
  */
+
 public class Sprite {
 
     private android.graphics.Bitmap tiles;
@@ -54,15 +55,35 @@ public class Sprite {
     private float y;
     private android.graphics.Rect from;
     private android.graphics.Rect to;
+	private android.graphics.Paint paint;
+	private android.graphics.Color color;
 
-    public Sprite(android.graphics.Bitmap tiles, int length, int width, int height) {
+	private int base_x, base_y, max_x, max_y;
+
+    public Sprite(android.graphics.Bitmap tiles, int length, int width, int height, int base_x, int base_y, int max_x, int max_y)
+	{
         this.tiles = tiles;
         this.length = length;
         this.width = width;
         this.height = height;
+		this.base_x = base_x;
+		this.base_y = base_y;
+		this.max_x = max_x;
+		this.max_y = max_y;
+
         from = new android.graphics.Rect(0, 0, width, height);
         to = new android.graphics.Rect(0, 0, width, height);
+		paint = new android.graphics.Paint();
+		color = new android.graphics.Color();
     }
+
+	public void Move(int style)
+	{
+		if(style == 1) moveLeft();
+		if(style == 2) moveRight();
+		if(style == 3) moveUp();
+		if(style == 4) moveDown();
+	}
 
     public void nextTile() {
         tileIndex = (tileIndex + 1) % length;
@@ -73,6 +94,26 @@ public class Sprite {
         this.y = y;
     }
 
+	public void moveLeft()
+	{
+		this.x -= 1;
+	}
+
+	public void moveRight()
+	{
+		this.x += 1;
+	}
+
+	public void moveUp()
+	{
+		this.y -= 1;
+	}
+
+	public void moveDown()
+	{
+		this.y += 1;
+	}
+
     public void draw(android.graphics.Canvas canvas) {
 
         from.left = tileIndex * width;
@@ -81,7 +122,10 @@ public class Sprite {
         to.top = (int) y;
         to.right = (int) x + width;
         to.bottom = (int) y + height;
-
+		
+		paint.setStyle(android.graphics.Paint.Style.STROKE);
+		paint.setColor(color.BLACK);
+        paint.setStrokeWidth(3);
         canvas.drawBitmap(tiles, from, to, null);
 
     }
