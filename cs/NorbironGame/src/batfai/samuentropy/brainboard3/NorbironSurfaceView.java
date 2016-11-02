@@ -131,7 +131,8 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 		{
 			for(int j = 0; j < 3; j++)		
 			{
-				Box tmp = new Box(i * 200, j * 200, 200, j+1, this.context);
+				Box tmp = new Box(i * 300, j * 300, 300, this.context);
+				tmp.getSprite().setMove(i*3 + 2, (i+j) * 3 + 1);
 				boxes[i*3 + j] = tmp;
 			}
 		}
@@ -238,10 +239,11 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
 				for(int i = 0; i<9; i++)
 				{
-					boxes[i].Move();
-					boxes[i].getSprite().setXY(-startsx + boardx + boardPic.getWidth()/2 + spritex, -startsy + boardy + boardPic.getHeight()/2);
-					boxes[i].getSprite().setXY(-startsx + boxes[i].getstartX() + spritex, -startsy + boxes[i].getstartY());
+					
+					boxes[i].getSprite().collapse();
+					boxes[i].getSprite().setXY(-startsx + boxes[i].getstartX(), -startsy + boxes[i].getstartY());
 	                boxes[i].getSprite().nextTile();
+					boxes[i].getSprite().Move();
 					boxes[i].setXY(-startsx + boxes[i].getstartX(), -startsy + boxes[i].getstartY());
 				}
 

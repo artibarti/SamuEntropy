@@ -44,6 +44,39 @@ package batfai.samuentropy.brainboard3;
  * @author nbatfai
  */
 
+class Vec2d
+{
+
+	private int x;
+	private int y;
+	
+	public Vec2d(int x, int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+
+	public void setX(int x)
+	{
+		this.x = x;	
+	}
+
+	public void setY(int y)
+	{
+		this.y = y;	
+	}
+
+	public void setXY(int x, int y)
+	{
+		this.x = x;	
+		this.y = y;	
+	}
+
+	public int getX() {return this.x;}
+	public int getY() {return this.y;}
+
+}
+
 public class Sprite {
 
     private android.graphics.Bitmap tiles;
@@ -57,10 +90,13 @@ public class Sprite {
     private android.graphics.Rect to;
 	private android.graphics.Paint paint;
 	private android.graphics.Color color;
+	public Vec2d move;
+	private int box_size;
 
 	private int base_x, base_y, max_x, max_y;
+	private int rel_x, rel_y;
 
-    public Sprite(android.graphics.Bitmap tiles, int length, int width, int height, int base_x, int base_y, int max_x, int max_y)
+    public Sprite(android.graphics.Bitmap tiles, int length, int width, int height, int base_x, int base_y, int max_x, int max_y, int box_size)
 	{
         this.tiles = tiles;
         this.length = length;
@@ -70,6 +106,12 @@ public class Sprite {
 		this.base_y = base_y;
 		this.max_x = max_x;
 		this.max_y = max_y;
+		this.box_size = box_size;
+		
+		this.rel_x = 0;
+		this.rel_y = 0;
+
+		move = new Vec2d(0,0);
 
         from = new android.graphics.Rect(0, 0, width, height);
         to = new android.graphics.Rect(0, 0, width, height);
@@ -77,12 +119,15 @@ public class Sprite {
 		color = new android.graphics.Color();
     }
 
-	public void Move(int style)
+	public void setMove(int x, int y)
 	{
-		if(style == 1) moveLeft();
-		if(style == 2) moveRight();
-		if(style == 3) moveUp();
-		if(style == 4) moveDown();
+		this.move.setXY(x,y);
+	}
+
+	public void Move()
+	{
+		this.rel_x += move.getX();
+		this.rel_y += move.getY();
 	}
 
     public void nextTile() {
@@ -114,14 +159,22 @@ public class Sprite {
 		this.y += 1;
 	}
 
+	void collapse()
+	{
+		if (rel_x + width >= box_size) {move.setXY(-1 * move.getX(), move.getY());}
+		if (rel_x <= -20) {move.setXY(-1 * move.getX(), move.getY());}
+		if (rel_y + height >= box_size) {move.setXY(move.getX(), -1 * move.getY());}
+		if (rel_y <= -20) {move.setXY(move.getX(), -1 * move.getY());}
+	}
+
     public void draw(android.graphics.Canvas canvas) {
 
         from.left = tileIndex * width;
         from.right = tileIndex * width + width;
-        to.left = (int) x;
-        to.top = (int) y;
-        to.right = (int) x + width;
-        to.bottom = (int) y + height;
+        to.left = (int) x + rel_x;
+        to.top = (int) y + rel_y;
+        to.right = (int) x + rel_x + width;
+        to.bottom = (int) y + rel_y + height;
 		
 		paint.setStyle(android.graphics.Paint.Style.STROKE);
 		paint.setColor(color.BLACK);

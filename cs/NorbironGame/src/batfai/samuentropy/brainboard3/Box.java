@@ -53,25 +53,18 @@ public class Box
     private android.graphics.Bitmap neuronSprite;
 	private Sprite sprite;
     private android.content.Context context;
-	private int moveStyle = 0;
 
-	public Box(int x_start, int y_start, int size, int moveStyle ,android.content.Context current)
+	public Box(int x_start, int y_start, int size ,android.content.Context current)
 	{
 		this.x = x_start;
 		this.y = y_start;
 		this.startx = x_start;
 		this.starty = y_start;
 		this.size = size;
-		this.moveStyle = moveStyle;
 		paint = new android.graphics.Paint();
 		color = new android.graphics.Color();
 		this.context = current;
 		initSprite();
-	}
-
-	public void Move()
-	{
-		this.sprite.Move(this.moveStyle);
 	}
 
 	public void initSprite()
@@ -79,7 +72,7 @@ public class Box
 		int resId = R.drawable.neuronsprite;
         neuronSprite = android.graphics.BitmapFactory.decodeResource(context.getResources(), resId);
         neuronSprite = android.graphics.Bitmap.createScaledBitmap(neuronSprite, 128 * 7, 123, false);
-        sprite = new Sprite(neuronSprite, 7, 128, 123, x,y, x+size, y+size);
+        sprite = new Sprite(neuronSprite, 7, 128, 123, x,y, x+size, y+size, size);
 
 	}
 
