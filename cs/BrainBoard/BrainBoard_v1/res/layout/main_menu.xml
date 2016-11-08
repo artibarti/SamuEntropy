@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+	
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+	android:id="@+id/main_main" >
+	
+	<ImageView
+		android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/main_neur_big"
+	    android:id="@+id/aaa" />
+
+	<ImageView
+		android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/main_neur_big"
+	    android:id="@+id/bbb" />
+
+
+	<LinearLayout 
+	    android:orientation="vertical"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@drawable/main_theme_1"
+		android:id="@+id/mainLayout">
+	
+	    <LinearLayout
+	        android:orientation="horizontal"
+	        android:layout_width="fill_parent"
+	        android:layout_height="100dp"
+	        android:layout_weight="1"
+	        android:background="#66ffffff">
+	
+	    </LinearLayout>
+	
+	    <LinearLayout
+	        android:orientation="horizontal"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1">
+	
+	        <LinearLayout
+	            android:orientation="vertical"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:gravity="center_horizontal">
+	
+	            <LinearLayout
+	                android:orientation="vertical"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="#77aaaaff">
+	
+		            <ImageView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@drawable/main_menu_title"
+		                android:id="@+id/imageButton11" />
+	
+				</LinearLayout>
+	
+	
+	            <ImageButton
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/main_menu_account"
+	                android:id="@+id/main_menu_account_btn"
+					android:onClick="openUserMenu" />
+	
+	            <ImageButton
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/main_menu_neurgame"
+	                android:id="@+id/main_menu_neurgame_btn"
+					android:onClick="openNeurMenu" />
+	            <ImageButton
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/main_menu_neurtable"
+	                android:id="@+id/main_menu_neurtable_btn"
+					android:onClick="openNeurTable" />
+	        </LinearLayout>
+
+	    </LinearLayout>
+
+	    <LinearLayout
+	        android:orientation="horizontal"
+	        android:layout_width="match_parent"
+	        android:layout_height="100dp"
+	        android:layout_weight="1"
+	        android:background="#aaffffff"
+	        android:gravity="center_vertical">
+
+	    </LinearLayout>
+
+	</LinearLayout>
+
+
+</RelativeLayout>
+
