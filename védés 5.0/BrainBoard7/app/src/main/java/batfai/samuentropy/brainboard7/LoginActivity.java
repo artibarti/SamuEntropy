@@ -3,6 +3,8 @@ package batfai.samuentropy.brainboard7;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,22 +26,40 @@ public class LoginActivity extends android.app.Activity
     private EditText username;
     private ImageView btnLogin;
     private Firebase firebase;
-    private String baseUrl = "https://brainboard-3fea4.firebaseio.com/Users";
     private ArrayList<String> users;
+    private String baseUrl = "https://brainboard-3fea4.firebaseio.com/Users";
     private String currUser;
+    private String blockCharacterSet = "~#^|$%&*!.[]#$";
+
+	private InputFilter filter = new InputFilter()
+	{
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend)
+        {
+
+            if (source != null && blockCharacterSet.contains(("" + source)))
+            {
+                return "";
+            }
+            return null;
+        }
+    };
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         firebase = new Firebase(baseUrl);
-
         username = (EditText) findViewById(R.id.uname);
         btnLogin = (ImageView) findViewById(R.id.login);
         users = new ArrayList<String>();
+        username.setFilters(new InputFilter[] { filter });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 login();
@@ -60,7 +80,6 @@ public class LoginActivity extends android.app.Activity
                     }
                 }
             }
-
             @Override
             public void onCancelled(FirebaseError firebaseError)
             {
@@ -69,9 +88,9 @@ public class LoginActivity extends android.app.Activity
         });
     }
 
+
     public int login()
     {
-
         String uname = ((EditText) findViewById(R.id.uname) ).getText().toString();
 
         if(users.size() == 0)
@@ -93,5 +112,4 @@ public class LoginActivity extends android.app.Activity
 
         return 0;
     }
-
 }
