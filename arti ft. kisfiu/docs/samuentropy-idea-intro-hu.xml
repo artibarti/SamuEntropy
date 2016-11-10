@@ -1,0 +1,65 @@
+<part xmlns="http://docbook.org/ns/docbook" version="5.1" xml:lang="hu"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+    <title>Bevezetés</title>
+    <partintro>
+        <para>
+			Jelen dokumentum célja a Debreceni Egyetem Informatikai Kar (DE-IK) Magas szintű programozási nyelvek II kurzusban fő 
+			kutatási irányt képviselő Samu Entropy alkalmazáshoz kapcsolódó feladatmegoldások és esetleges egyéni fejlesztések bemutatása. 
+			A dokumentumban bemutatott fejlesztéseket Sáfrány Artúr és Kovács Kristóf eszközölte. Az eredeti feladatkiírásoknak próbáltunk 
+			eleget tenni, azonban a módosítások következtében alapjaiban változott meg a kód, így a jelenlegi verzióról nem mondható ki 
+			teljes bizonysággal, hogy melyik korábbi verzió utódja, de funkcionalitásában a BrainBoardhoz áll legközelebb. Ezt azért is éreztük 
+			fontosnak megemlíteni, mert a feladatok kiírásában gyakran egy konkrét verzióhoz van kiírva egy adott feladat. Mivel a jelenlegi kód 
+			eltér minden korábbitól, valamint mivel saját fejlesztésű, ezért egyszerre nem tekinthető egyik korábbi verzió utódjának sem, és 
+			egyszerre tekinthető mindegyikének, így igazságosnak érezzük elszámolni a kiírt pontokat, ha a kiírt feladat a saját verziónkba van 
+			beépítve.
+        </para>
+    </partintro>
+
+    <chapter>
+        <info>
+            <title>Bevezetés</title>
+        </info>
+        <section>
+            <title>Az eredeti 5let</title>
+            <para>
+                Az eredeti 5let, hogy pontokat szerzünk a kiírt feladatok megoldásával.
+            </para>
+                
+            <section>
+                <title>Célok és kitekintés</title>
+                <para>
+                    Célunk, hogy az UDPROG közösség gépezetébe bekapcsolódva pontokat szerezzünk, ezzel segítve magunkat és 
+					ösztönözve társainkat. A feladatok némelyikénél alapból megengedett a kétfős megvalósítás, valamint az egyéni feladatoknál 
+					sem tervezünk megválni egymás segítségétől.
+                </para>
+                <para>
+					Az együttműködés kezdete és vége
+                </para>
+                <para>
+					Ezen kollaboráció kezdete, ha nem is hivatalosan, de az ide kapcsolódó feladatok kiírásának időpontja. Minden ide 
+					kapcsolódó feladatot igyekszünk itt számon tartani, elkerülve a redundáns pontnyilvántartást. Ez azt jelenti, hogy 
+					a git repoban, akár ebben a doksiban lesznek elszámolva az ide kapcsolódó pontok, a féléves nyilvántartásban pedig 
+					megtalálható lesz a link. A kollaboráció végét illetően igyekszünk fenntartani az együttműködést a félév végéig, ezzel
+					is a könyvelés áttekinthetőségét szorgalmazva.
+                </para>
+                
+                <section>
+                    <title>A projekt célok</title>
+                    <para>
+                        Szakmai szempontból a cél, hogy egy olyan alkalmazást rakjunk össze, amiben megtestesül az összes megoldott feladat. 
+						Erre jelenleg a terv az, hogy az elkészült alkalmazás menüjéből elérhető több activity, melyek egy vagy több feladat megoldását 
+						képviselik. 
+                    </para>
+                    <para>
+						További cél a foráskód javítása, az átláthatóság javítása, valamint új funkciók bevezetése, egyéni megoldások fejlesztése.
+                    </para>
+                    <para>
+						Cél még akár a feladatkiírásokon túl új textúrák létrehozása, az alkalmazás küllemének javítása.
+                    </para>
+                </section>                                                                                      
+            </section>
+        </section>
+    </chapter>        
+</part>

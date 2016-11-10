@@ -126,13 +126,26 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
         surfaceHolder.addCallback(new SurfaceEvents(this));
 
+		int dirs[][] =
+		{
+			{1,0},
+			{0,1},
+			{1,1},
+			{2,4},
+			{1,6},
+			{7,2},
+			{1,2},
+			{-1,3},
+			{1,7}		
+		};
+
 		boxes = new Box[9];
 		for(int i = 0; i < 3; i++)
 		{
 			for(int j = 0; j < 3; j++)		
 			{
 				Box tmp = new Box(i * 300, j * 300, 300, this.context);
-				tmp.getSprite().setMove(i*3 + 2, (i+j) * 3 + 1);
+				tmp.getSprite().setMove(dirs[i*3 + j][0], dirs[i*3 + j][1]);
 				boxes[i*3 + j] = tmp;
 			}
 		}

@@ -1,0 +1,159 @@
+<part xmlns="http://docbook.org/ns/docbook" version="5.1" xml:lang="hu"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="samuentropy-idea-research-hu">
+    <title>Fejlesztések és feladatmegoldások bemutatása</title>
+
+    <partintro>
+        <para>
+			Ebben a részben bemutatjuk a kész, folyamatban lévő, illetve tervezett fejlesztések bemutatását.
+        </para>
+        <para>
+			A feladatmegoldások nem feltétlenül elégítenek ki minden nemű igényt, a kódban lehetnek rossz megoldások, fölösleges elemek, egyszóval, nincs kész.
+        </para>
+    </partintro>
+
+    <chapter>
+        <info>
+            <title>Gréta</title>
+            <keywordset>
+                <keyword></keyword>
+            </keywordset>
+        </info>
+
+        <section>
+            <title>Gréta I.</title>
+            <para>
+                Készíts egy saját forkot a ../cs/NorbironLogo app-ból (az egész ESAMU-ról persze) és és kísérletezz 
+				a saját logóddal, hogy mutat! (UDPROG közösségben tipikusan Android kezdőknek ajánlva: 65 pont, a „játékélményt” 
+				írd meg fészes posztban is, a posztodra minden szakmai komment +10 pont, minden lájk 5 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				
+            </para>			
+        </section>
+
+        <section>
+            <title>Gréta II.</title>
+            <para>
+				Készíts egy saját forkot a ../cs/NorbironAnim app-ból (az egész ESAMU-ról persze) és és kísérletezz a Norbiron
+				../res/logo/Norbiron logó animációjával, hogy mutat! (UDPROG közösségben tipikusan Android kezdőknek
+				ajánlva: 65 pont, a „játékélményt” írd meg fészes posztban is, a posztodra minden szakmai komment +10 pont, minden
+				lájk 5 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				
+            </para>			
+        </section>
+
+        <section>
+            <title>Gréta III.</title>
+            <para>
+				Készíts egy saját forkot a ../cs/NorbironGame app-ból (az egész ESAMU-ról persze) és és kísérletezz a Norbiron
+				../res/logo/Norbiron logó animációjával! Tedd páldául őket dobozokba, ahol az egyik dobozban random mozog-
+				janak, a másikban szabályosan (pl. rácsba szervezve rezegve, vagy körbe forogva stb.) (UDPROG közösségben tipikusan
+				Android kezdőknek ajánlva: 115 pont, a „játékélményt” írd meg fészes posztban is, a posztodra minden szakmai komment
+				+10 pont, minden lájk 5 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				
+            </para>			
+        </section>
+
+        <section>
+            <title>Gréta IV.</title>
+            <para>
+				Készíts egy saját forkot a ../cs/NorbironBox app-ból (az egész ESAMU-ról persze) és és kísérletezz a Norbiron ..
+				/res/logo/Norbiron alapú „processzorokkal”! Kapcsold őket például valamilyen hálózatba, ehhez lehet mozgatni
+				kell őket, vagy fix slot helyekre kiválasztani stb. (UDPROG közösségben tipikusan Android kezdőknek ajánlva: 135 pont,
+				a „játékélményt” írd meg fészes posztban is, a posztodra minden szakmai komment +10 pont, minden lájk 5 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				
+            </para>			
+        </section>
+
+        <section>
+            <title>Gréta V.</title>
+            <para>
+				Készíts egy saját forkot a ../cs/NorbironBox app-ból (az egész ESAMU-ról persze) és a Javadoc konvenciókat
+				követve kommentezd fel a forrásokat! (UDPROG közösségben, tipikusan kezdőknek ajánlva: 90 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				
+            </para>			
+        </section>
+
+        <section>
+            <title>Gréta VI.</title>
+            <para>
+				Készíts egy saját forkot a ../cs/NorbironBoard app-ból (az egész ESAMU-ról persze) és gondold át a processzo-
+				rok kijelölését, majd valósíts meg ennek kapcsán valamilyen saját elképzelésedet! (UDPROG közösségben, tipikusan
+				kezdőknek ajánlva: 420 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				
+            </para>			
+        </section>
+
+        <section>
+            <title>Gréta VII.</title>
+            <para>
+				Készíts egy saját forkot a ../cs/NorbironBoard app-ból (az egész ESAMU-ról persze) és javíts a mozgatáson és
+				nagyításon (tehát legyen elképzelés mit javítanál és valósítsd is meg)! (UDPROG közösségben, tipikusan kezdőknek
+				ajánlva: 380 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				
+            </para>			
+        </section>
+
+        <section>
+            <title>Gréta VIII.</title>
+            <para>
+				Készíts egy saját forkot a ../cs/NorbironBoard app-ból és old meg, hogy a neuron sprite-ok ne másszanak ki a
+				procik alól! (UDPROG közösségben, tipikusan kezdőknek ajánlva: 210 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				
+            </para>			
+        </section>
+
+        <section>
+            <title>Gréta IX.</title>
+            <para>
+				Készíts egy saját forkot a ../cs/NorbironBoard app-ból és old meg, hogy a készülék forgatásakor ua. maradjon az
+				elemek elhelyezkedése! (UDPROG közösségben, tipikusan kezdőknek ajánlva: 310 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				
+            </para>			
+        </section>    
+    </chapter>
+</part>    
