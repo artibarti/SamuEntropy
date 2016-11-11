@@ -10,6 +10,10 @@
         <para>
 			A feladatmegoldások nem feltétlenül elégítenek ki minden nemű igényt, a kódban lehetnek rossz megoldások, fölösleges elemek, egyszóval, nincs kész.
         </para>
+        <para>
+			Jelenleg párhuzamosan folyik egy Maven és egy AndroidStudio project fejlesztése, jelenleg az AndroidStudio project előrébb jár, ez a mérvadó, a 
+			Firebase-es funkciók csak ebből érhetők el.
+        </para>
     </partintro>
 
     <chapter>
@@ -27,12 +31,18 @@
 				a saját logóddal, hogy mutat! (UDPROG közösségben tipikusan Android kezdőknek ajánlva: 65 pont, a „játékélményt” 
 				írd meg fészes posztban is, a posztodra minden szakmai komment +10 pont, minden lájk 5 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				A logo megjelenik a splash képernyőn.
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					A logo megjelenik a splash képernyőn.
+	            </para>			
+            </section>
+			<section>
+				<title>Játékélmény</title>
+	            <para>
+					Izgalmas első találkozás volt az Esamuval, a megszokott grafikus programmal sikerült új logót kreálni.
+	            </para>			
+            </section>			
         </section>
 
         <section>
@@ -43,12 +53,20 @@
 				ajánlva: 65 pont, a „játékélményt” írd meg fészes posztban is, a posztodra minden szakmai komment +10 pont, minden
 				lájk 5 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				Az animáció megjelenik a samu | Anim menüpont alatt.	
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+    	        <para>
+					Az animáció megjelenik a samu | Anim menüpont alatt.
+	            </para>			
+            </section>
+            <section>
+				<title>Játékélmény</title>
+	            <para>
+					Különböző animációk kipróbálásával rájöttünk melyek illenek legjobban a program szellemiségéhez. A példában talált frame 
+					animáción túl kísérleteztünk tween animációkkal, melyek több lehetőséget nyújtottak, persze megvoltak a hátrányok is, azonban
+					tetszett a folyamatos mozgás.
+	            </para>			
+            </section>			
         </section>
 
         <section>
@@ -60,12 +78,19 @@
 				Android kezdőknek ajánlva: 115 pont, a „játékélményt” írd meg fészes posztban is, a posztodra minden szakmai komment
 				+10 pont, minden lájk 5 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				A megoldás megtalálható a samu | Game menüpont alatt.
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					A megoldás megtalálható a Norbiron Game appban.
+	            </para>			
+            </section>
+            <section>
+				<title>Játékélmény</title>
+	            <para>
+					Izgalmas volt elmélyülni az android rejtelmeiben, és komolyabb kihívásokkal szembenézni. A mozgás jelenleg egy vektor segítségével történik, 
+					valamint az, hogy ne másszanak ki a dobozaikból a neuronok, egy ütközésteszttel és vektortükrözéssel van megoldva.
+	            </para>			
+            </section>			
         </section>
 
         <section>
@@ -76,12 +101,19 @@
 				kell őket, vagy fix slot helyekre kiválasztani stb. (UDPROG közösségben tipikusan Android kezdőknek ajánlva: 135 pont,
 				a „játékélményt” írd meg fészes posztban is, a posztodra minden szakmai komment +10 pont, minden lájk 5 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				A megoldás megtalálható a samu | Brainboard menüpont alatt.
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					A megoldás megtalálható a samu | Brainboard menüpont alatt.
+	            </para>			
+            </section>
+            <section>
+				<title>Játékélmény</title>
+	            <para>
+					A hálózatnak tekinthető board, tehát a háttél egyszerűen szerkeszthető a NorbironMap forrását módosítva. Egy tömbben kell megadni, hogy
+					adott pozíción milyen textúra jelenjen meg, így, bár még funkcionalitás nélkül, de könnyen módosítható a boxokat kezelő és befogadó felület. 						Igyekeztünk javítani a küllemen, egy menüből érhető el a BrainBoard felülete. A menürendszer és egyéb megoldások állandó módosítás altt vannak.
+	            </para>			
+            </section>			
         </section>
 
         <section>
@@ -90,12 +122,12 @@
 				Készíts egy saját forkot a ../cs/NorbironBox app-ból (az egész ESAMU-ról persze) és a Javadoc konvenciókat
 				követve kommentezd fel a forrásokat! (UDPROG közösségben, tipikusan kezdőknek ajánlva: 90 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				...
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					...
+	            </para>			
+            </section>
         </section>
 
         <section>
@@ -105,12 +137,12 @@
 				rok kijelölését, majd valósíts meg ennek kapcsán valamilyen saját elképzelésedet! (UDPROG közösségben, tipikusan
 				kezdőknek ajánlva: 420 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				...
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					...
+	            </para>			
+            </section>
         </section>
 
         <section>
@@ -120,12 +152,21 @@
 				nagyításon (tehát legyen elképzelés mit javítanál és valósítsd is meg)! (UDPROG közösségben, tipikusan kezdőknek
 				ajánlva: 380 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				A megoldás megtalálható a samu | Brainboard menüpont alatt.
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					A megoldás megtalálható a samu | Brainboard menüpont alatt.
+	            </para>			
+            </section>
+            <section>
+				<title>Játékélmény</title>
+	            <para>
+					A nagyításnál lehetőség van kicsinyítésre is, a valódi probléma még fennáll de dolgozunk rajta. A boxok mozgatása során mostmár csak fix 
+					helyekre lehet letenni a boxokat, és az átmeneti állapotok, mikor egy box két pozíció között van, nem jelennek meg, ezzel javítva a 
+					játékélményt. A kicsinyítés miatt átláthatóbb a board. Igyekeztünk javítani a küllemen,
+					egy menüből érhető el a BrainBoard felülete. A menürendszer és egyéb megoldások állandó módosítás altt vannak.
+	            </para>		
+            </section>		
         </section>
 
         <section>
@@ -134,12 +175,19 @@
 				Készíts egy saját forkot a ../cs/NorbironBoard app-ból és old meg, hogy a neuron sprite-ok ne másszanak ki a
 				procik alól! (UDPROG közösségben, tipikusan kezdőknek ajánlva: 210 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				...
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					A Spriteok méretét kisebbre vettük, így már nem másznak ki.
+	            </para>			
+            </section>
+            <section>
+				<title>Játékélmény</title>
+	            <para>
+					Érdekes bepillantást nyerni a neuronok életébe. Már nem másznak ki, csak nem olyan esztétikusak. Igyekeztünk javítani a küllemen,
+					egy menüből érhető el a BrainBoard felülete. A menürendszer és egyéb megoldások állandó módosítás altt vannak.
+	            </para>			
+            </section>			
         </section>
 
         <section>
@@ -148,12 +196,18 @@
 				Készíts egy saját forkot a ../cs/NorbironBoard app-ból és old meg, hogy a készülék forgatásakor ua. maradjon az
 				elemek elhelyezkedése! (UDPROG közösségben, tipikusan kezdőknek ajánlva: 310 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				A megoldás megtalálható a samu | Brainboard menüpont alatt.
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					Majd
+	            </para>			
+            </section>
+            <section>
+				<title>Játékélmény</title>
+	            <para>
+					Nincs
+	            </para>			
+            </section>			
         </section>    
     </chapter>
 	
@@ -178,13 +232,22 @@
 				hogy a from scratch értelmezhető legyen. (UDPROG közösségben 490 pont, a játékélményt írd meg fészes posztban is, a
 				posztodra minden szakmai komment +10 pont, minden lájk 5 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				A megoldás megtalálható a samu | Brainboard menüpont alatt.
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					A megoldás megtalálható a samu | Brainboard menüpont alatt.
+	            </para>			
+			</section>
+            <section>
+				<title>Játékélmény</title>
+ 	           <para>
+					A menüket láthatóan elszeparáltuk a tábla többi részétől, többféle textúrát használva, valamint a kód javításának köszönhetően
+					egyszerűen szerkeszthető az elhelyezés és a design. Az alkalmazás emlékszik a felrakott node-okra, ezt a Firebase cloud-hosted adatbázisa 						teszi lehetővé. A nodeokat nem tényleges koordináták alapján, hanem a grid 'x' 'y' koordinátája alapján kerülnek tárolásra, ahol 'x' és 'y' a 						sort és oszlopot jelölik. Ezen felül mentésre kerül a box típusa is. A kódban elemi változások történtek, többek között a felhasználókezelés 
+					miatt a nodeactivity megkapja az aktuálisan bejelentkezett felhasználó nevét. A NorbironSurfaceView nem az xml-ben definiáltan jön létre, 						hanem a NorbironGameActivity kódjában hozzuk létre, ehhez új konstruktort használva, ami megkapja paraméterként a felhasználónevet.
+            	</para>			
+            </section>			
         </section>    
+
         <section>
             <title>Védés - 2.0</title>
             <para>
@@ -196,13 +259,27 @@
 				(UDPROG közösségben 790 pont, a játékélményt írd meg fészes posztban is, a posztodra minden szakmai komment +10
 				pont, minden lájk 5 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				A megoldás megtalálható a samu | Brainboard menüpont alatt.				
-            </para>			
+            <section>
+				<title>
+					Kivitelezés
+				</title>
+	            <para>
+					A megoldás megtalálható a samu | Brainboard menüpont alatt.				
+    	        </para>			
+            </section>
+            <section>
+				<title>
+					Játékélmény
+				</title>
+	            <para>
+					A node-okat hozzáadó activity -ben kijavítottunk egy bugot, miszerint a boxin 
+					gomb megnyomására nem duplikálja a források listáját, csak egyetlen new box -ot ad hozzá. A tábla törlése más mechanika szerint történik. 						Jelenleg egy NorbironMap osztály kezeli a boardot, ezen történik a törlés. Egy külön NorbironResources osztály felel az erőforrások
+					 betöltéséért, a surfaceView-on lekezelt felhasználói interakciókat is a NorbironMap értelmezi, tehát a NorbironGameActivity agya a 					NorbironMap lett, a SurfaceView már csak a felületet biztosítja, így jobban elszeparálódtak a különböző funkciók és részek. A megoldás 
+					még nem teljes, de nagy lépést tettünk az átláthatóság felé.
+	            </para>			
+            </section>			
         </section>    
+
         <section>
             <title>Védés - 3.0</title>
             <para>
@@ -214,14 +291,31 @@
 				(UDPROG közösségben 990 pont, a játékélményt írd meg fészes posztban is, a posztodra minden szakmai komment +10
 				pont, minden lájk 5 pont).
             </para>
-            <para>
-				Kivitelezés:
-            </para>
-            <para>
-				A megoldás megtalálható a samu | Brainboard menüpont alatt.				
-            </para>			
+            <section>
+				<title>Kivitelezés</title>
+	            <para>
+					A megoldás megtalálható a samu | Brainboard menüpont alatt.				
+	            </para>			
+			</section>
+            <section>
+				<title>Játékélmény</title>
+				<para>
+					Nagyon sokat növelt a játékélményen, hiszen nem csak azokat a processzorokat kaptam vissza amiket leraktam , hanem a pozíciójukat is.
+					A brainboard feladat megoldása lehetővé tette, hogy ezt a feladatot megoldottnak tekintsük, a kódban minimális változtatásokat 
+					eszközölve. A boxok az eredeti helyükön jelennek meg. Új osztályok bevezetésévelmég átláthatóbbá tettük a kódot, egyszerűbben 
+					változtatható a felület.
+				</para>
+				<mediaobject>
+	                <imageobject>
+	                    <imagedata fileref="img/firebase.png" scale="39"/>
+                    </imageobject>
+                   <textobject>
+						<phrase>
+							Realtime adatbázis tesztelése
+                        </phrase>
+                   </textobject>
+                </mediaobject>
+			</section>
         </section>    
-
 	</chapter>
-
 </part>    
