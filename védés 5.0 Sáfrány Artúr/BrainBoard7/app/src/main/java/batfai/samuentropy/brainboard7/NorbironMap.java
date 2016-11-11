@@ -31,7 +31,7 @@ class Vec2d
 
 public class NorbironMap
 {
-    private	int n = 13;
+    private	int n = 10;
     private int m = 10;
     private int[][] map;
     private int BLOCK_SIZE = 120;
@@ -63,6 +63,7 @@ public class NorbironMap
         // 0 - simple
         // 1 - red
         // 2 - board
+        // 3 - clash
 
         this.map = new int[][]
                 {
@@ -74,11 +75,8 @@ public class NorbironMap
                         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+                        { 0, 0, 0, 3, -1, -1, -1, 0, 0, 0 },
+                        { 0, 0, 0, -1, -1, -1, -1, 0, 0, 0 }
                 };
     }
 
@@ -88,9 +86,9 @@ public class NorbironMap
         canvas.scale(scaleFactor, scaleFactor);
         canvas.drawColor(android.graphics.Color.BLACK);
 
-        for(int i = 0; i<m; i++)
+        for(int i = 0; i<10; i++)
         {
-            for(int j = 0; j<n; j++)
+            for(int j = 0; j<10; j++)
             {
                 if(map[j][i] == -1) continue;
                 canvas.drawBitmap(norbironResources.getImage(this.map[j][i]), -startsx + i * BLOCK_SIZE, -startsy + j * BLOCK_SIZE, null);
@@ -321,6 +319,21 @@ public class NorbironMap
     public void newBox()
     {
         this.norbironResources.newBox();
+    }
+
+    public boolean checkPosition(int x, int y)
+    {
+        if(x < 0 || x >= n || y < 0 || y >= m)
+        {
+            return false;
+        }
+
+        if(map[y][x] != 0)
+        {
+            return false;
+        }
+
+        else return true;
     }
 
 }

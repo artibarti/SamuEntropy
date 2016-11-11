@@ -7,6 +7,7 @@ import android.content.Intent;
  * Created by artibarti on 2016.11.05..
  */
 
+
 public class NorbironSurfaceView extends android.view.SurfaceView implements Runnable
 {
     public int SLOT_SIZE = 120;
@@ -214,11 +215,16 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
                 nx = (int)(x + startsx) / SLOT_SIZE;
                 ny = (int)(y + startsy) / SLOT_SIZE;
 
-                if( selNb.setXY(nx,ny) == true)
+                /*
+                if (norbironMap.checkPosition(nx, ny) == true)
                 {
+                    selNb.setXY(nx,ny);
                     norbironMap.saveMapToServer(currentUser);
                 }
+                */
 
+                selNb.setXY(nx,ny);
+                norbironMap.saveMapToServer(currentUser);
 
                 fromsx = x;
                 fromsy = y;
@@ -246,7 +252,16 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
                 nx = (int)(x + startsx) / SLOT_SIZE;
                 ny = (int)(y + startsy) / SLOT_SIZE;
 
+
+                /*
+                if (norbironMap.checkPosition(nx, ny) == true)
+                {
+                    selNb.setXY(nx,ny);
+                }
+                */
+
                 selNb.setXY(nx,ny);
+
 
                 fromsx = x;
                 fromsy = y;

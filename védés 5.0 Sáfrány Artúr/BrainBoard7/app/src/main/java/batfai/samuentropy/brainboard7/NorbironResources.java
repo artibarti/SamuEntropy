@@ -53,7 +53,8 @@ public class NorbironResources
             {
                     R.drawable.pcb550i, 1, 1,
                     R.drawable.pcb550i_red, 1, 1,
-                    R.drawable.brainboard_board, 4, 1
+                    R.drawable.brainboard_board, 4, 1,
+                    R.drawable.clash, 4, 2
             };
 
     private Integer[] menuIDs =

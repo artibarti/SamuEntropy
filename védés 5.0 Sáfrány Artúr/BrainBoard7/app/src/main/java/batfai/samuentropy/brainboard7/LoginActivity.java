@@ -29,6 +29,7 @@ public class LoginActivity extends android.app.Activity
     private ArrayList<String> users;
     private String baseUrl = "https://brainboard-3fea4.firebaseio.com/Users";
     private String currUser;
+
     private String blockCharacterSet = "~#^|$%&*!.[]#$";
 
 	private InputFilter filter = new InputFilter()

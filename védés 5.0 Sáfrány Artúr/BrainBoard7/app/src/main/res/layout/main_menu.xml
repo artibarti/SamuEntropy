@@ -7,6 +7,7 @@
 				android:background="@drawable/background_orangeblue_theme"
 				android:id="@+id/bg">
 
+	<!--
 	<LinearLayout 
 	    android:orientation="vertical"
 	    android:layout_width="match_parent"
@@ -40,7 +41,8 @@
 			android:layout_gravity="bottom"/>
 
 	</LinearLayout>
-	
+	-->
+
 	<LinearLayout 
 	    android:orientation="vertical"
 	    android:layout_width="match_parent"

@@ -31,7 +31,7 @@
 				Kivitelezés:
             </para>
             <para>
-				Az elkészített logók megtalálhatóak mind a Maven project, mind az Android Studio Project resource mappájában. A képeket Gimp és és Blender 					segítségével készítettük.
+				A logo megjelenik a splash képernyőn.
             </para>			
         </section>
 
@@ -47,7 +47,7 @@
 				Kivitelezés:
             </para>
             <para>
-								
+				Az animáció megjelenik a samu | Anim menüpont alatt.	
             </para>			
         </section>
 
@@ -64,7 +64,7 @@
 				Kivitelezés:
             </para>
             <para>
-				
+				A megoldás megtalálható a samu | Game menüpont alatt.
             </para>			
         </section>
 
@@ -80,7 +80,7 @@
 				Kivitelezés:
             </para>
             <para>
-				
+				A megoldás megtalálható a samu | Brainboard menüpont alatt.
             </para>			
         </section>
 
@@ -94,7 +94,7 @@
 				Kivitelezés:
             </para>
             <para>
-				
+				...
             </para>			
         </section>
 
@@ -109,7 +109,7 @@
 				Kivitelezés:
             </para>
             <para>
-				
+				...
             </para>			
         </section>
 
@@ -124,7 +124,7 @@
 				Kivitelezés:
             </para>
             <para>
-				
+				A megoldás megtalálható a samu | Brainboard menüpont alatt.
             </para>			
         </section>
 
@@ -138,7 +138,7 @@
 				Kivitelezés:
             </para>
             <para>
-				
+				...
             </para>			
         </section>
 
@@ -152,8 +152,76 @@
 				Kivitelezés:
             </para>
             <para>
-				
+				A megoldás megtalálható a samu | Brainboard menüpont alatt.
             </para>			
         </section>    
     </chapter>
+	
+	<chapter>
+        <info>
+            <title>Védése feladatok</title>
+            <keywordset>
+                <keyword></keyword>
+            </keywordset>
+        </info>
+
+        <section>
+            <title>Védés - 1.0</title>
+            <para>
+				Készíts egy saját forkot a ../cs/NorbironTable app-ból (az egész ESAMU-ról persze) és a saját magad elképzelte
+				irányban fejleszd tovább, azaz kísérletezz a játékélménnyel! Védésként választva kötelező implemntálandó pontok az
+				alábbiak:
+				• Találj ki valamilyen politikát a nódokat hozzáadó aktiviti elérésére és valósítsd meg (pl. a Build csomópont legyen
+				mindig a bal alsó sarokban, akár legyen külön menü stb. most ugye a Build csomóponton kettőt kattintva jön be).
+				• Az app emlékezzen a felépített nódokra, azaz újraindítás után a korábban felrakott csomópontok jelenjenek meg.
+				ezeket készítheted from scratch, vagy akár 2 fős csoportban, a kezdők a további protók alapján, azokra pár napot várva,
+				hogy a from scratch értelmezhető legyen. (UDPROG közösségben 490 pont, a játékélményt írd meg fészes posztban is, a
+				posztodra minden szakmai komment +10 pont, minden lájk 5 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				A megoldás megtalálható a samu | Brainboard menüpont alatt.
+            </para>			
+        </section>    
+        <section>
+            <title>Védés - 2.0</title>
+            <para>
+				Készíts egy saját forkot a ../cs/Brainboard app-ból (az egész ESAMU-ról persze) és a saját magad elképzelte
+				irányban fejleszd tovább, azaz kísérletezz a játékélménnyel! Védésként választva kötelező implemntálandó pontok az
+				alábbiak:
+				• Tudjon mindent, amit a NorbironTable feladott védési feladatként!
+				• Az aktuális csomópontokat a BOXIN gomb nyomására tegye egy új dobozba, ami jelenjen meg a BUILD alatt is!
+				(UDPROG közösségben 790 pont, a játékélményt írd meg fészes posztban is, a posztodra minden szakmai komment +10
+				pont, minden lájk 5 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				A megoldás megtalálható a samu | Brainboard menüpont alatt.				
+            </para>			
+        </section>    
+        <section>
+            <title>Védés - 3.0</title>
+            <para>
+				Készíts egy saját forkot a GretaTheBuilder app-ból (az egész ESAMU-ról persze) és a saját magad elképzelte irányban
+				fejleszd tovább, azaz kísérletezz a játékélménnyel! Védésként választva kötelező implemntálandó pontok az alábbiak:
+				• Tudjon mindent, amit a Brainboard feladott védési feladatként!
+				• Ne csak csomópontokat, hanem éleket is kezeljen vagy mentse/töltse vissza ne csak a csomópontokat, hanem azok
+				pozícióját is az alaplapon.
+				(UDPROG közösségben 990 pont, a játékélményt írd meg fészes posztban is, a posztodra minden szakmai komment +10
+				pont, minden lájk 5 pont).
+            </para>
+            <para>
+				Kivitelezés:
+            </para>
+            <para>
+				A megoldás megtalálható a samu | Brainboard menüpont alatt.				
+            </para>			
+        </section>    
+
+	</chapter>
+
 </part>    

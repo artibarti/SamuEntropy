@@ -114,6 +114,7 @@ public class MainMenuActivity extends android.app.Activity
         menuItems.add(R.drawable.main_menu_settings_v2);
         menuItems.add(R.drawable.main_menu_games_v2);
         menuItems.add(R.drawable.main_menu_brainboard_v2);
+        menuItems.add(R.drawable.main_menu_anim);
 
         android.widget.GridView gridView = (android.widget.GridView) findViewById(R.id.menuitems);
         MenuAdapter menuAdapter = new MenuAdapter(this);
@@ -144,13 +145,11 @@ public class MainMenuActivity extends android.app.Activity
                     startActivityForResult(intent, LOGIN_REQUEST);
                 }
 
-                if (position == 2)
+                if (position == 4)
                 {
                     android.content.Intent intent = new android.content.Intent(view.getContext(), NeuronAnimActivity.class);
                     startActivity(intent);
                 }
-
-
             }
         });
 
