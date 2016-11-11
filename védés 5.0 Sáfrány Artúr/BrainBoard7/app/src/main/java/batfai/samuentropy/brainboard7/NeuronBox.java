@@ -8,8 +8,8 @@ public class NeuronBox implements Cloneable
 {
 
     public int SLOT_SIZE = 120;
-    public int PROCESSOR_SIZE_X = 80;
-    public int PROCESSOR_SIZE_Y = 80;
+    //public int PROCESSOR_SIZE_X = 80;
+    //public int PROCESSOR_SIZE_Y = 80;
     public int PROCESSOR_FRAME_SIZE = 20;
 
     private Sprite[] neurons;

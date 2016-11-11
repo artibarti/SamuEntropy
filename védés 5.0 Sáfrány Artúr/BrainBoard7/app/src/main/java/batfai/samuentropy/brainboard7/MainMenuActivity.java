@@ -124,12 +124,12 @@ public class MainMenuActivity extends android.app.Activity
         {
             public void onItemClick(android.widget.AdapterView<?> parent, android.view.View view, int position, long id)
             {
+
                 if (position == 3)
                 {
                     if(!(currentUser.equals("")))
                     {
                         android.content.Intent intent = new android.content.Intent(view.getContext(), NeuronGameActivity.class);
-                        //intent.putExtra("username", currentUser);
                         intent.putExtra("username", currentUser);
                         startActivity(intent);
                     }
@@ -143,6 +143,13 @@ public class MainMenuActivity extends android.app.Activity
                     android.content.Intent intent = new android.content.Intent(view.getContext(), LoginActivity.class);
                     startActivityForResult(intent, LOGIN_REQUEST);
                 }
+
+                if (position == 2)
+                {
+                    android.content.Intent intent = new android.content.Intent(view.getContext(), NeuronAnimActivity.class);
+                    startActivity(intent);
+                }
+
 
             }
         });

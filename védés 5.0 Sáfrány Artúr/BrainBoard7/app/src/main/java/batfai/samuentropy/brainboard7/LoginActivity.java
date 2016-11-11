@@ -93,10 +93,6 @@ public class LoginActivity extends android.app.Activity
     {
         String uname = ((EditText) findViewById(R.id.uname) ).getText().toString();
 
-        if(users.size() == 0)
-        {
-            return -1;
-        }
         if(uname.equals(""))
         {
             android.widget.Toast.makeText(this, "username is empty", android.widget.Toast.LENGTH_SHORT).show();

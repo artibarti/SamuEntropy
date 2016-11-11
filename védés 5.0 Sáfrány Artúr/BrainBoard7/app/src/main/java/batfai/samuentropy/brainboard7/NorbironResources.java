@@ -61,11 +61,17 @@ public class NorbironResources
                     R.drawable.buildproci, R.drawable.boxinproci
             };
 
+    private Integer[] switchIDs =
+            {
+
+            };
+
 
     private int BLOCK_SIZE;
     private NorbironSurfaceView surfaceView;
     private java.util.ArrayList<NeuronBox> neuronBoxes;
     private java.util.ArrayList<NeuronBox> menuBoxes;
+    private java.util.ArrayList<NeuronBox> switches;
     private java.util.ArrayList<android.graphics.Bitmap> images;
     private int boxin = 0;
 

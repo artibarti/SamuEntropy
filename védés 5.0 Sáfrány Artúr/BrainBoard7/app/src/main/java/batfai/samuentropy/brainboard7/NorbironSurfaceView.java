@@ -26,7 +26,7 @@ public class NorbironSurfaceView extends android.view.SurfaceView implements Run
 
     private android.view.SurfaceHolder surfaceHolder;
     private android.view.ScaleGestureDetector scaleGestureDetector;
-    private float scaleFactor = 1.0f;
+    private float scaleFactor = 0.3f;
 
     private static boolean inited;
     private boolean running = true;
